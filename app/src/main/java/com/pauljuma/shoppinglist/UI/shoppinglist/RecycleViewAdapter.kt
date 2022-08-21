@@ -29,15 +29,16 @@ class RecycleViewAdapter(var items: List<ShoppingItem>, private val viewModel: S
             viewModel.upSert(currentShoppingList)
         }
 
-        holder.itemView.ivMinus.setOnClickListener {
-            currentShoppingList.amount--
-            viewModel.upSert(currentShoppingList)
+        holder.itemView.ivDelete.setOnClickListener {
+            viewModel.delete(currentShoppingList)
+
         }
 
         if (currentShoppingList.amount > 0) {
 
-            holder.itemView.ivDelete.setOnClickListener {
-                viewModel.delete(currentShoppingList)
+            holder.itemView.ivMinus.setOnClickListener {
+                currentShoppingList.amount--
+                viewModel.upSert(currentShoppingList)
 
             }
         }
